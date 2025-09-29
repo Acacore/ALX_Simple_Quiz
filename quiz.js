@@ -1,22 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const feedback = document.getElementById("feedback")
   const answer = document.getElementById("submit-answer")
-  console.log('hello')
+  let correctAnswer = 4
 
-  const checkAnswer = function checkAnswer() {
-    // Function body
-    let correctAnswer = 4
-    
-    let userAnswer = document.querySelector('input[name="quiz"]')
-    userAnswer = userAnswer.value
 
-    if (userAnswer === correctAnswer) {
+  function checkAnswer(x){
+    if (x === correctAnswer) {
       feedback.textContent = "Correct! Well done."
     }
     else {
       feedback.textContent = "That's incorrect. Try again!"
     }  
   }
+
+  answer.addEventListener("click", function () {
+    const userAnswer = document.querySelector("input[name='quiz']:checked")
+
+    if (!userAnswer) {
+      feedback.textContent = "Please select and answer"
+      return
+    }
+    checkAnswer(Number(userAnswer.value))
+  }) 
   
-  answer.addEventListener("click", checkAnswer)
 });
