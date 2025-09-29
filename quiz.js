@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let correctAnswer = 4
 
 
-  function checkAnswer(x){
-    if (x === correctAnswer) {
+  function checkAnswer(userAnswer){
+    if (userAnswer === correctAnswer) {
       feedback.textContent = "Correct! Well done."
     }
     else {
